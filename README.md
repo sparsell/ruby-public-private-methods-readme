@@ -20,7 +20,7 @@ bub.meow
 #=> "Meow, my name is Lil Bub!"
 ```
 
-`meow` is an instance method because we can call on an instance of the `Cat` class.
+`meow` is an instance method because we can call it on an instance of the `Cat` class.
 
 And class methods we call on the entire class itself, not the instance. Like if we had a method that kept track of all of the new instances of `Cat`:
 
