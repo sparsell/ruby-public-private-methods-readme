@@ -1,4 +1,12 @@
-# Ruby Methods in Classes
+# Private Methods
+
+## Objectives
+
+1. Define private methods.
+2. Understand the context in which you will use such a method. 
+3. See how private methods are defined. 
+
+## Background: Instance and Class Methods
 
 As we dive deeper into object orientation in Ruby, we've been working with different types of methods: instance and class methods. Remember that instance methods are called on instances of a class. Let's make the following class called `Cat`.
 
@@ -64,6 +72,14 @@ We've already been writing public methods: `meow` and `self.all`. We can call th
 ### Private Methods
 
 Private methods cannot be called by an explicit receiver. What does that mean? It means we can only call private methods within the context of the defining class: the receiver of a private method is always `self`.
+
+### Why Use Private Methods? 
+
+Private methods help us to obscure information and functionality from the user. For example, let's say we have an application on the web. Users need to sign in to our application. A use will input their username and password to do so. The action of taking in that password and using it log someone in would be a good candidate for a private method. We would never want someone to be able to call `user.password` and reveal our users' super-secret password. 
+
+There is another reason to designate a method as private. Doing so will signal to other developers that this method is *depended* on by other methods in your program. It signals that they should beware of refactoring such a method for fear of breaking other parts of the program that they may not realize rely on it. 
+
+### Building Private Methods
 
 We've already written a private method in our `Cat` class: `initialize`. 
 
@@ -142,3 +158,4 @@ end
 Then when we call `bub.birthday!`, Lil Bub's age becomes 3. Happy birthday, Bub!
 
 ![bub birthday](http://ihavecat.com/wp-content/uploads/2014/06/480ae292-8e53-41ff-9b5a-868ef5f75d42.jpg)
+
