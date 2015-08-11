@@ -72,7 +72,7 @@ bub.initialize
 #=>NoMethodError: private method `initialize' called for #<Cat:0x00000101d1ad10 @name="lil Bub">
 ```
 
-Private methods, aside from initialize, are usually written with the work `private` above them. Let's make a private `attr_accessor` method called `age` (most cats don't like for humans to just know their ages). Remember that an `attr_accessor` is just a shorthand for two methods: a getter and a setter.
+Private methods, aside from initialize, are usually written with the word `private` above them. Let's make a private `attr_accessor` method called `age` (most cats don't like for humans to just know their ages). Remember that an `attr_accessor` is just a shorthand for two methods: a getter and a setter.
 
 ```ruby
 class Cat
