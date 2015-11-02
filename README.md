@@ -125,11 +125,30 @@ NoMethodError: private method `age' called for #<Cat:0x000001020bfce0 @name="Lil
 
 ### Why Have A Private `attr_accessor`?
 
-Previously we were using getters/setters so the outside world could access our instance variables. But now we are using them so that we can locally access them. Why is that valuable? A lot of software bugs come from the incorrect modification of state, aka variables. When we are debugging our program, because so many bugs come from modification of variables, if we can centralize all modification into one place we help with debugging. That's the beauty of enforcing getters/setters. Want to see all the places an instance variable is modified? With a private `attr_accessor` you can just override it and put a `binding.pry`.
+Previously we were using getters/setters so the outside world could access our instance variables. But now we are using them so that we can locally access them. Why is that valuable? A lot of software bugs come from the incorrect modification of state, aka variables. If we can centralize all modification into one place we can simplify our debugging efforts. That's the beauty of enforcing getters/setters. Let's say you want to see all the places an instance variable is modified. With a private `attr_accessor` you can just override it and put a `binding.pry`.
+
+So instead of having this
+
+```ruby
+private
+
+attr_accessor :age
+```
+
+You can override it with the following and put in a `binding.pry`
+
+```ruby
+private
+
+def age=(value)
+  @age = value
+  binding.pry
+end
+```
 
 Another nice feature of using setters/getters is future proofing. Maybe in the future you want to add validations whenever someone sets one of your instance variables? No problem! Just override the setter method. No need to find all the places that you modify that instance variable and change it.
 
-Let's make a method in the `Cat` class that implicitly receives age, through the only way it can: `self`. A cat can have a birthday, where it ages 1 year when the birthday happens.
+Let's make a method in the `Cat` class that receives age, through the only way it can: `self`. A cat can have a birthday, where it ages 1 year when the birthday happens.
 
 ```ruby
 class Cat
@@ -163,4 +182,4 @@ end
 
 Then when we call `bub.birthday!`, Lil Bub's age becomes 3. Happy birthday, Bub!
 
-![bub birthday](http://ihavecat.com/wp-content/uploads/2014/06/480ae292-8e53-41ff-9b5a-868ef5f75d42.jpg)
+![bub birthday](http://readme-pics.s3.amazonaws.com/bdaycat.jpg)
