@@ -183,3 +183,5 @@ end
 Then when we call `bub.birthday!`, Lil Bub's age becomes 3. Happy birthday, Bub!
 
 ![bub birthday](http://readme-pics.s3.amazonaws.com/bdaycat.jpg)
+
+<a href='https://learn.co/lessons/ruby-public-private-methods-readme' data-visibility='hidden'>View this lesson on Learn.co</a>
