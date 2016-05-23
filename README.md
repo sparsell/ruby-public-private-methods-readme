@@ -170,7 +170,7 @@ class Cat
     "Meow, my name is #{name}!"
   end
 
-  def birthday! #why the ! at the end? The ! or "Bang" signals destructive changes, or mutations, to the underlying object. In this instance, the birthday method is changing the cat\'\s age.
+  def birthday! #why the ! at the end? The ! or "Bang" signals destructive changes, or mutations, to the underlying object. In this instance, the birthday method is changing the cat's age.
     self.age = age + 1
   end
 
