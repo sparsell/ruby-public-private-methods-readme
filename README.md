@@ -75,9 +75,9 @@ Private methods cannot be called by an explicit receiver. What does that mean? I
 
 ### Why Use Private Methods?
 
-Private methods help us to obscure information and functionality from the user. For example, let's say we have an application on the web. Users need to sign in to our application. A user will input their username and password to do so. The action of taking in that password and using it to log someone in would be a good candidate for a private method. We would never want someone to be able to call `user.password` and reveal our users' super-secret password.
+Private methods are a way of encapsulating functionality within a class. For example, a bartender can make a drink at a customer's request. Part of the process of making a drink includes choosing liquors, mixers, garnish, and stirring everything together. As a customer, you're permitted to ask the bartender for a drink but you can't instruct him or her on each step. The smaller steps that make up the bartender's job can be considered private methods.
 
-There is another reason to designate a method as private. Doing so will signal to other developers that this method is *depended* on by other methods in your program. It signals that they should beware of refactoring such a method for fear of breaking other parts of the program that they may not realize rely on it.
+Private methods also signal to other developers that this method is *depended* on by other methods in your program. It signals that they should beware of removing such a method for fear of breaking other parts of the program that they may not realize rely on it.
 
 ### Building Private Methods
 
@@ -111,7 +111,10 @@ class Cat
   end
 
   private
-  attr_accessor :age
+
+  def age
+    "I'm #{age} years old!"
+  end
 
 end
 ```
@@ -125,7 +128,7 @@ NoMethodError: private method `age' called for #<Cat:0x000001020bfce0 @name="Lil
 
 ### Why Have A Private `attr_accessor`?
 
-Previously we were using getters/setters so the outside world could access our instance variables. But now we are using them so that we can locally access them. Why is that valuable? A lot of software bugs come from the incorrect modification of state, aka variables. If we can centralize all modification into one place we can simplify our debugging efforts. That's the beauty of enforcing getters/setters. Let's say you want to see all the places an instance variable is modified. With a private `attr_accessor` you can just override it and put a `binding.pry`.
+Previously we were using getters/setters so the outside world could access our instance variables. But now we are using them so that we can locally access them. Why is that valuable? Bugs can result from the incorrect modification and assignment of variables. If we can limit outside access to variables, we can simplify our debugging efforts. That's the beauty of enforcing getters/setters. Let's say you want to see all the places an instance variable is modified. With a private `attr_accessor` you can just override it and put a `binding.pry`.
 
 So instead of having this
 
