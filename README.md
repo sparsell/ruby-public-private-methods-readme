@@ -150,7 +150,6 @@ However, if we call `make_drink`, the `choose_liquor` method works. What gives?
 phil.make_drink
 #=>Here is your drink. It contains ["whiskey", "vermouth", "olives"]
 ```
-The `choose_liquor` method was called without any receiver. Ruby sees the missing receiver and assumes it to be self, or the current object. When `choose_liquor` is called, self is an instance of Bartender. Only a Bartender object can tell itself to choose a liquor, a mixer, and a garnish. Phil can tell himself to choose a liquor, garnish, etc., we cannot instruct Phil to do so. Private methods restrict an outsider from calling methods that belong to an object. However, we, as customers, are free to ask a bartender to make us a drink (`make_drink`).
-
+The `choose_liquor` method was called without any receiver. Ruby sees the missing receiver and assumes it to be self, or the current object. When `choose_liquor` is called, self is an instance of Bartender. Only a Bartender object can tell itself to choose a liquor, a mixer, and a garnish. Phil can tell himself to choose a liquor, garnish, etc., but we cannot instruct Phil to do so. Private methods restrict an outsider from calling methods that belong to an object. However, we, as customers, are free to ask a bartender to make us a drink (`make_drink`).
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/ruby-public-private-methods-readme' title='Private Methods'>Private Methods</a> on Learn.co and start learning to code for free.</p>
