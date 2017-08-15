@@ -53,7 +53,7 @@ class Bartender
 end
 ```
 
-Here we're shoveling in every new instance of `Bartender` `initialized` into a constant that holds onto all bartenders. Then we have a class method `self.all` which we'll call on the class itself to return all of the bartenders.
+Here we're shoveling in every new instance of `Bartender` `initialized` into a constant that holds onto all bartenders. Then we have a class method `self.all`, which we'll call on the class itself to return all of the bartenders.
 
 ```ruby
 phil = Bartender.new("Phil")
@@ -153,3 +153,5 @@ phil.make_drink
 The `choose_liquor` method was called without any receiver. Ruby sees the missing receiver and assumes it to be self, or the current object. When `choose_liquor` is called, self is an instance of Bartender. Only a Bartender object can tell itself to choose a liquor, a mixer, and a garnish. Phil can tell himself to choose a liquor, garnish, etc., but we cannot instruct Phil to do so. Private methods restrict an outsider from calling methods that belong to an object. However, we, as customers, are free to ask a bartender to make us a drink (`make_drink`).
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/ruby-public-private-methods-readme' title='Private Methods'>Private Methods</a> on Learn.co and start learning to code for free.</p>
+
+<p class='util--hide'>View <a href='https://learn.co/lessons/ruby-public-private-methods-readme'>Private Methods</a> on Learn.co and start learning to code for free.</p>
