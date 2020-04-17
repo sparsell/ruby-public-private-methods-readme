@@ -30,7 +30,7 @@ phil.intro
 
 `intro` is an instance method because we can call it on an instance of the `Bartender` class.
 
-And class methods we call on the entire class itself, not the instance. Like if we had a method that kept track of all of the new instances of `Bartender`:
+Class methods we call on the entire class itself, not the instance. For example, we can create a method that keeps track of all of the new instances of `Bartender`:
 
 ```ruby
 class Bartender
